@@ -154,6 +154,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!483693784 &351526120
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -199,6 +200,7 @@ TilemapRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -3
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -206,7 +208,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &351526121
 Tilemap:
   m_ObjectHideFlags: 0
@@ -2948,7 +2949,8 @@ GameObject:
   - component: {fileID: 621836345}
   - component: {fileID: 621836344}
   - component: {fileID: 621836343}
-  - component: {fileID: 621836350}
+  - component: {fileID: 621836351}
+  - component: {fileID: 621836352}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2978,6 +2980,7 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   playerInput: {fileID: 621836345}
+  Animator: {fileID: 621836351}
   baseSpeed: 1.5
   movement: {x: 0, y: 0}
 --- !u!114 &621836344
@@ -3051,6 +3054,7 @@ Rigidbody2D:
   m_Constraints: 4
 --- !u!212 &621836348
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3096,7 +3100,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7998746216006548820, guid: 9f77454e27b2a48f4a785f6dad20c7af, type: 3}
+  m_MaskInteraction: 0
+  m_Sprite: {fileID: 8942715469058879946, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3105,7 +3110,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &621836349
 Transform:
@@ -3116,14 +3120,36 @@ Transform:
   m_GameObject: {fileID: 621836342}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.29722297, y: -3.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.133, y: -4.942, z: 0}
+  m_LocalScale: {x: 2.7135, y: 2.7135, z: 2.7135}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &621836350
-PolygonCollider2D:
+--- !u!95 &621836351
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621836342}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: edf3985aa9f50dd4b84abd1573b88103, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &621836352
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3156,31 +3182,9 @@ PolygonCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2, y: 2}
-    newSize: {x: 0.5, y: 0.5}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.46309054, y: -0.25893188}
-      - {x: -0.4753893, y: -0.2723732}
-      - {x: -0.49291605, y: -0.29144788}
-      - {x: -0.4933089, y: -0.95534015}
-      - {x: -0.47769624, y: -0.9754658}
-      - {x: -0.45907557, y: -0.9843514}
-      - {x: 0.6279181, y: -0.9988754}
-      - {x: 0.652645, y: -0.980988}
-      - {x: 0.67718023, y: -0.9616363}
-      - {x: 0.69, y: -0.880661}
-      - {x: 0.6820647, y: -0.59578943}
-      - {x: 0.39809704, y: -0.24954796}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: -0.019999988, y: 0.3208621}
+  m_Size: {x: 0.38, y: 0.6055665}
+  m_Direction: 0
 --- !u!1 &800366154
 GameObject:
   m_ObjectHideFlags: 0
@@ -3329,6 +3333,7 @@ TilemapCollider2D:
   m_UseDelaunayMesh: 0
 --- !u!483693784 &800366159
 TilemapRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3374,6 +3379,7 @@ TilemapRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -2
+  m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -3381,7 +3387,6 @@ TilemapRenderer:
   m_SortOrder: 0
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
-  m_MaskInteraction: 0
 --- !u!1839735485 &800366160
 Tilemap:
   m_ObjectHideFlags: 0
