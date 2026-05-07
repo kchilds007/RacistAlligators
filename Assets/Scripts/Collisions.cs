@@ -27,7 +27,7 @@ public class Collisions : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             GameParameters.isJumping = false;
-            animator.SetBool("Jumping", false);
+            animator.enabled = true;
         } else if (collision.gameObject.CompareTag("Wall"))
         {
             rigidbody2D.linearVelocityX *= -1;

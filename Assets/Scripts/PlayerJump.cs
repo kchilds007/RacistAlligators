@@ -32,6 +32,12 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
+    }
+
+    private void FixedUpdate()
+    {
         if (GameParameters.isJumping)
         {
             return;
@@ -39,9 +45,8 @@ public class PlayerJump : MonoBehaviour
         
         if (JumpInput.ReadValue<float>() > 0.5)
         {
-            animator.SetBool("Jumping", true);
-            print(((int) (jumpPower)/2));
-            spriteRenderer.sprite =  (Sprite)sprites[((int) (jumpPower)/2)];
+            animator.enabled = false;
+            spriteRenderer.sprite =  sprites[((int) (jumpPower)/2)];
             holdingSpace = true;
             jumpPower += GameParameters.variableJumpPower;
             if (jumpPower > GameParameters.maxJumpPower)
@@ -58,13 +63,9 @@ public class PlayerJump : MonoBehaviour
                 holdingSpace = false;
             }
         }
-        
-    }
-
-    private void FixedUpdate()
-    {
         if (jump)
         {
+            spriteRenderer.sprite = sprites[6];
             rigidbody2D.AddForceY(jumpPower, ForceMode2D.Impulse);
             if (!player.facingLeft())
             {
