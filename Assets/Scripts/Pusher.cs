@@ -1,21 +1,16 @@
 using UnityEngine;
 
-public class Player : MobileMob
+public class Pusher : PatrollingEnemy
 {
-    private PlayerMovement playerMovement; 
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         base.Start();
-        playerMovement = GetComponent<PlayerMovement>(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        movement = playerMovement.movement;
         base.Update();
     }
-    
 }
