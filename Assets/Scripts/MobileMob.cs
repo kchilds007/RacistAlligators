@@ -28,4 +28,9 @@ public class MobileMob : MonoBehaviour
             transform.localScale = ls;
         }
     }
+
+    public bool facingLeft()
+    {
+        return isFacingLeft;
+    }
 }
