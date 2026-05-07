@@ -2952,6 +2952,7 @@ GameObject:
   - component: {fileID: 621836351}
   - component: {fileID: 621836352}
   - component: {fileID: 621836353}
+  - component: {fileID: 621836354}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -3198,6 +3199,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b34dfe875e42534280c2c1776758311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
+  sprites:
+  - {fileID: 8942715469058879946, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
+  - {fileID: 2958511140352431735, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
+  - {fileID: 6972525715499957518, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
+  - {fileID: 6236697279805923591, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
+  - {fileID: -5971759993315405684, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
+  - {fileID: 7762128722641201618, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
   JumpInput:
     m_Name: Jump Input
     m_Type: 0
@@ -3208,6 +3216,19 @@ MonoBehaviour:
     m_SingletonActionBindings: []
     m_Flags: 0
   playerInput: {fileID: 621836345}
+--- !u!114 &621836354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621836342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f51f78b10f157843a35417febc8712d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Collisions
+  rigidbody2D: {fileID: 621836347}
 --- !u!1 &800366154
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,7 +3245,7 @@ GameObject:
   - component: {fileID: 800366156}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

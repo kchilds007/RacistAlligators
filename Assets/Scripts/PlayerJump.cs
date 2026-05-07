@@ -1,8 +1,10 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
+    public Sprite[] sprites;
     public InputAction JumpInput;
     public PlayerInput playerInput;
     private Player player;
@@ -10,6 +12,9 @@ public class PlayerJump : MonoBehaviour
     private float jumpPower;
     private bool jump;
     private bool holdingSpace;
+    private SpriteRenderer spriteRenderer;
+
+    private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +25,8 @@ public class PlayerJump : MonoBehaviour
         jump = false;
         jumpPower = GameParameters.minJumpPower;
         holdingSpace = false;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator =  GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,6 +39,9 @@ public class PlayerJump : MonoBehaviour
         
         if (JumpInput.ReadValue<float>() > 0.5)
         {
+            animator.SetBool("Jumping", true);
+            print(((int) (jumpPower)/2));
+            spriteRenderer.sprite =  (Sprite)sprites[((int) (jumpPower)/2)];
             holdingSpace = true;
             jumpPower += GameParameters.variableJumpPower;
             if (jumpPower > GameParameters.maxJumpPower)

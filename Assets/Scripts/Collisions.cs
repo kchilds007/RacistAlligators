@@ -5,12 +5,15 @@ public class Collisions : MonoBehaviour
     private Player player;
     private PlayerMovement playerMovement; 
     public Rigidbody2D rigidbody2D;
+
+    private Animator animator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GetComponent<Player>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         playerMovement = GetComponent<PlayerMovement>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,7 @@ public class Collisions : MonoBehaviour
         if (collision.gameObject.CompareTag("Ground"))
         {
             GameParameters.isJumping = false;
+            animator.SetBool("Jumping", false);
         } else if (collision.gameObject.CompareTag("Wall"))
         {
             rigidbody2D.linearVelocityX *= -1;

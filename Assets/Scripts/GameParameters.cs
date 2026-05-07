@@ -6,7 +6,7 @@ public static class GameParameters
     public static float velPower = 2f;
     public static float maxJumpPower = 10f;
     public static float minJumpPower = 0.5f;
-    public static float variableJumpPower = 0.1f;
+    public static float variableJumpPower = 0.2f;
     public static bool isJumping = false;
 
 }
