@@ -4273,6 +4273,7 @@ MonoBehaviour:
   - {fileID: 6236697279805923591, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
   - {fileID: -5971759993315405684, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
   - {fileID: 7762128722641201618, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
+  - {fileID: -594673236474796148, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
   JumpInput:
     m_Name: Jump Input
     m_Type: 0
