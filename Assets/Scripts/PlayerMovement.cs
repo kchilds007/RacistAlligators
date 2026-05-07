@@ -35,6 +35,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (GameParameters.isJumping)
+        {
+            return;
+        }
         float targetSpeed = movement.x * currentSpeed;
         float speedDiff = targetSpeed - GetComponent<Rigidbody2D>().linearVelocity.x;
         

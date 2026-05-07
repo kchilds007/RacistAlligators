@@ -5,6 +5,7 @@ public class PlayerJump : MonoBehaviour
 {
     public InputAction JumpInput;
     public PlayerInput playerInput;
+    private Player player;
     private Rigidbody2D rigidbody2D;
     private float jumpPower;
     private bool jump;
@@ -14,6 +15,7 @@ public class PlayerJump : MonoBehaviour
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
+        player = GetComponent<Player>();
         JumpInput = playerInput.actions["Jump"];
         jump = false;
         jumpPower = GameParameters.minJumpPower;
@@ -23,6 +25,10 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameParameters.isJumping)
+        {
+            return;
+        }
         
         if (JumpInput.ReadValue<float>() > 0.5)
         {
@@ -35,8 +41,9 @@ public class PlayerJump : MonoBehaviour
         }
         else
         {
-            if (holdingSpace = true)
+            if (holdingSpace == true)
             {
+                GameParameters.isJumping = true;
                 jump = true;
                 holdingSpace = false;
             }
@@ -49,8 +56,18 @@ public class PlayerJump : MonoBehaviour
         if (jump)
         {
             rigidbody2D.AddForceY(jumpPower, ForceMode2D.Impulse);
+            if (!player.facingLeft())
+            {
+                rigidbody2D.AddForceX((jumpPower / 3) * -1, ForceMode2D.Impulse);
+            }
+            else
+            {
+                rigidbody2D.AddForceX((jumpPower / 3), ForceMode2D.Impulse);
+            }
+            
             jumpPower = GameParameters.minJumpPower;
             jump = false;
+            
         }
     }
 }
