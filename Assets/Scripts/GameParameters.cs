@@ -10,6 +10,5 @@ public static class GameParameters
     public static bool isJumping = false;
 
     public static float PatrollingEnemyspeed = 5;
-    public static float PatrollingEnemyChangeTime = 3;
 
 }
