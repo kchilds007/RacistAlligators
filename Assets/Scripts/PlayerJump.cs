@@ -58,14 +58,21 @@ public class PlayerJump : MonoBehaviour
         {
             if (holdingSpace == true)
             {
-                GameParameters.isJumping = true;
                 jump = true;
                 holdingSpace = false;
             }
         }
         if (jump)
         {
-            spriteRenderer.sprite = sprites[6];
+            if (jumpPower > 2.0f)
+            {
+                spriteRenderer.sprite = sprites[6];
+            }
+            else
+            {
+                spriteRenderer.sprite = sprites[5];
+                animator.enabled = true;
+            }
             rigidbody2D.AddForceY(jumpPower, ForceMode2D.Impulse);
             if (!player.facingLeft())
             {
