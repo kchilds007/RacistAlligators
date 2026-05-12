@@ -1,7 +1,16 @@
 using UnityEngine;
 
+public enum PlayerState
+{
+    Idle,
+    Walking,
+    Falling,
+    Jumping
+}
+
 public class Player : MobileMob
 {
+    private PlayerState playerState;
     private PlayerMovement playerMovement; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -16,6 +25,16 @@ public class Player : MobileMob
     {
         movement = playerMovement.movement;
         base.Update();
+    }
+
+    void ChangeState(PlayerState newState)
+    {
+        playerState = newState;
+    }
+
+    public PlayerState getState()
+    {
+        return playerState;
     }
     
 }
