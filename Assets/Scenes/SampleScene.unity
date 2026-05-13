@@ -4299,7 +4299,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f51f78b10f157843a35417febc8712d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Collisions
-  rigidbody2D: {fileID: 0}
+  spriteRenderer: {fileID: 0}
+  fallingSprite: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &621836355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6424,6 +6426,63 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1001 &1565614824
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -9.073745
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.3206306
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154729474222746601, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_Name
+      value: BreakableWall (2)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
 --- !u!114 &1581381154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6534,6 +6593,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1661224395}
   m_CullTransparentMesh: 1
+--- !u!1001 &1668280428
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154729474222746601, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_Name
+      value: BreakableWall (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
 --- !u!213 &1750450673
 Sprite:
   m_ObjectHideFlags: 0
@@ -7045,6 +7161,63 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 3
   m_ColliderType: 1
+--- !u!1001 &4614504240321191393
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 8.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2370913888893199286, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4154729474222746601, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
+      propertyPath: m_Name
+      value: BreakableWall
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 562d48ab5d0d7477b9f2b409144860a8, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7060,3 +7233,6 @@ SceneRoots:
   - {fileID: 1430280843}
   - {fileID: 366455674}
   - {fileID: 1975023942}
+  - {fileID: 4614504240321191393}
+  - {fileID: 1668280428}
+  - {fileID: 1565614824}
