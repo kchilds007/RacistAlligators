@@ -4738,6 +4738,7 @@ MonoBehaviour:
   Launcher: {fileID: 621836356}
   PlayerLocation: {fileID: 621836349}
   player: {fileID: 621836344}
+  playerAnimator: {fileID: 621836351}
 --- !u!114 &621836356
 MonoBehaviour:
   m_ObjectHideFlags: 0
