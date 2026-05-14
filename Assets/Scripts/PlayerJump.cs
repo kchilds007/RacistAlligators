@@ -13,8 +13,11 @@ public class PlayerJump : MonoBehaviour
     private bool jump;
     private bool holdingSpace;
     private SpriteRenderer spriteRenderer;
+    private bool isOnStickyGround = false;
+
 
     private Animator animator;
+    private float originalMaxJumpPower;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,17 +30,19 @@ public class PlayerJump : MonoBehaviour
         holdingSpace = false;
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator =  GetComponent<Animator>();
+        originalMaxJumpPower = GameParameters.maxJumpPower;
+
     }
 
     // Update is called once per frame
     void Update()
     {
         
-        
     }
 
     private void FixedUpdate()
     {
+        
         if (GameParameters.isJumping)
         {
             return;
@@ -86,6 +91,25 @@ public class PlayerJump : MonoBehaviour
             jumpPower = GameParameters.minJumpPower;
             jump = false;
             
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        
+        if (other.gameObject.CompareTag("StickyGround"))
+        {
+            isOnStickyGround = true;
+            GameParameters.maxJumpPower = originalMaxJumpPower / 2f;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        
+        if (other.gameObject.CompareTag("StickyGround"))
+        {
+            isOnStickyGround = false;
+            GameParameters.maxJumpPower = originalMaxJumpPower;
         }
     }
 }
