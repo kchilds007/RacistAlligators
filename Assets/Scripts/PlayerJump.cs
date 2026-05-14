@@ -69,6 +69,7 @@ public class PlayerJump : MonoBehaviour
         }
         if (jump)
         {
+            
             if (jumpPower > 2.0f)
             {
                 spriteRenderer.sprite = sprites[6];

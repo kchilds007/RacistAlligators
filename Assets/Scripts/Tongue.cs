@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class Tongue : MonoBehaviour
 {
     public Launcher Launcher;
+    public Transform PlayerLocation;
+    public MobileMob player;
 
     private float attackCooldown = GameParameters.PlayerAttackCooldown;
     // Update is called once per frame
@@ -33,7 +35,35 @@ public class Tongue : MonoBehaviour
     private void Launch()
     {
         Vector2 aimDirection = GetAimDirection();
-        Launcher.Launch(aimDirection);
+        LaunchInDirection(aimDirection);
+
+
+    }
+
+    private void LaunchInDirection(Vector2 aimDirection)
+    {
+        if (player.facingLeft())
+        {
+            if (aimDirection.x > 0)
+            {
+                Launcher.Launch(aimDirection, -1);
+            }
+            else
+            {
+                attackCooldown = 0;
+            }
+        }
+        else
+        {
+            if (aimDirection.x < 0)
+            {
+                Launcher.Launch(aimDirection, 1);
+            }
+            else
+            {
+                attackCooldown = 0;
+            }
+        }
     }
 
     private Vector2 GetAimDirection()
