@@ -79,14 +79,14 @@ public class PlayerJump : MonoBehaviour
                 spriteRenderer.sprite = sprites[5];
                 animator.enabled = true;
             }
-            rigidbody2D.AddForceY(jumpPower, ForceMode2D.Impulse);
+            //rigidbody2D.AddForceY(, ForceMode2D.Impulse);
             if (!player.facingLeft())
             {
-                rigidbody2D.AddForceX((jumpPower / 3) * -1, ForceMode2D.Impulse);
+                rigidbody2D.AddForce(new Vector2((jumpPower / 3) * -1, jumpPower), ForceMode2D.Impulse);
             }
             else
             {
-                rigidbody2D.AddForceX((jumpPower / 3), ForceMode2D.Impulse);
+                rigidbody2D.AddForce(new Vector2((jumpPower / 3), jumpPower), ForceMode2D.Impulse);
             }
             
             jumpPower = GameParameters.minJumpPower;

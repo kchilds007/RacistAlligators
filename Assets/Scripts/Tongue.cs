@@ -25,8 +25,8 @@ public class Tongue : MonoBehaviour
         
         if (Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Launch();
             attackCooldown = GameParameters.PlayerAttackCooldown;
+            Launch();
         }
         //if mouse clicked launch ball
         
