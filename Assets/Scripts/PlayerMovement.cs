@@ -13,8 +13,9 @@ public class PlayerMovement : MonoBehaviour
     public float baseSpeed;
     private float currentSpeed;
     public Vector2 movement;
-
     private Vector2 moveDir;
+    private bool isOnSlipperyGround = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,11 +42,33 @@ public class PlayerMovement : MonoBehaviour
         float targetSpeed = movement.x * currentSpeed;
         float speedDiff = targetSpeed - GetComponent<Rigidbody2D>().linearVelocity.x;
         
-        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : decceleration;
-        float finalMove = Mathf.Pow(Mathf.Abs(speedDiff), velPower) * accelRate * Mathf.Sign(speedDiff);
+        float accel = isOnSlipperyGround ? acceleration / GameParameters.SlipFactor : acceleration;
+        float deccel = isOnSlipperyGround ? decceleration / GameParameters.SlipFactor : decceleration;
+
+        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? accel : deccel;        float finalMove = Mathf.Pow(Mathf.Abs(speedDiff), velPower) * accelRate * Mathf.Sign(speedDiff);
         GetComponent<Rigidbody2D>().AddForce(finalMove * Vector2.right, ForceMode2D.Force);
         Animate();
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("SlipperyGround"))
+        {
+            isOnSlipperyGround = true;
+        }
+        
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("SlipperyGround"))
+        {
+            isOnSlipperyGround = false;
+        }
+        
+    }
+    
+    
 
     private void Animate()
     {

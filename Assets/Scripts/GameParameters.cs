@@ -14,5 +14,7 @@ public static class GameParameters
     public static float ProjectileForce = 10f;
     public static float MaxProjectileRange = 3f;
     
+    public static float SlipFactor = 10f;
 
+    
 }
