@@ -10,6 +10,11 @@ public static class GameParameters
     public static bool isJumping = false;
 
     public static float PatrollingEnemyspeed = 5;
-    public static float PatrollingEnemyChangeTime = 3;
+    public static float PlayerAttackCooldown = 1.5f;
+    public static float ProjectileForce = 10f;
+    public static float MaxProjectileRange = 3f;
+    
+    public static float SlipFactor = 10f;
 
+    
 }
