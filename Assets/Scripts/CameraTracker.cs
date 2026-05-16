@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraTracker : MonoBehaviour
 {
-    public Camera mainCamera ;
+    private Camera mainCamera ;
 
     public Transform player;
 
