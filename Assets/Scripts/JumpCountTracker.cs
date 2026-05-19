@@ -1,17 +1,26 @@
 using UnityEngine;
 
-public static class JumpCountTracker
+public class JumpCountTracker : MonoBehaviour
 {
+    private int totalJumpCount = 0;
 
-    public static int TotalJumpCount = 0;
-
-    public static void UpdateTotalJumpCount()
+    void Start()
     {
-        ++TotalJumpCount;
+        totalJumpCount = 0;
     }
 
-    public static void ResetTotalJumpCount()
+    public void UpdateTotalJumpCount()
     {
-        TotalJumpCount = 0;
+        ++totalJumpCount;
+    }
+
+    public void ResetTotalJumpCount()
+    {
+        totalJumpCount = 0;
+    }
+
+    public int getTotalJumpCount()
+    {
+        return totalJumpCount;
     }
 }

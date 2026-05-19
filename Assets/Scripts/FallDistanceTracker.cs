@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class FallDistanceTracker : MonoBehaviour
 {
-    public Player player;
-    
     private float beforeJumpY = 0;
     private float totalFallDistance = 0;
     private float lastFallDistance = 0;
+
+    void Start()
+    {
+        resetTotalFallDistance();
+    }
 
     // Update is called once per frame
     void Update()
     {
         
         // only tracking falling from last landed position (downward arc of a jump isn't always a fall)
-        if (player.getState() != PlayerState.Falling)
+        // player.getState() != PlayerState.Falling
+        if (GameParameters.isJumping)
         {
             beforeJumpY = transform.position.y;
         }
@@ -34,7 +38,7 @@ public class FallDistanceTracker : MonoBehaviour
         return totalFallDistance;
     }
     
-    public void resetTotalFallDistance()
+    private void resetTotalFallDistance()
     {
         totalFallDistance = 0;
     }

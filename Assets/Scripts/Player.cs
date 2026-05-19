@@ -27,7 +27,7 @@ public class Player : MobileMob
         base.Update();
     }
 
-    void ChangeState(PlayerState newState)
+    public void ChangeState(PlayerState newState)
     {
         playerState = newState;
     }

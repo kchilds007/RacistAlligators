@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerJump : MonoBehaviour
 {
+    public JumpCountTracker jumpCountTracker;
+    
     public Sprite[] sprites;
     public InputAction JumpInput;
     public PlayerInput playerInput;
@@ -69,6 +71,9 @@ public class PlayerJump : MonoBehaviour
         }
         if (jump)
         {
+            jumpCountTracker.UpdateTotalJumpCount();
+            
+            player.ChangeState(PlayerState.Falling);
             
             if (jumpPower > 2.0f)
             {
