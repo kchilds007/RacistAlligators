@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - SlipperyGround
   - StickyGround
+  - PlayerMouth
   layers:
   - Default
   - TransparentFX
