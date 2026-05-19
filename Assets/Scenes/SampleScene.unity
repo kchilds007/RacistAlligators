@@ -4446,6 +4446,7 @@ GameObject:
   - component: {fileID: 621836357}
   - component: {fileID: 621836358}
   - component: {fileID: 621836359}
+  - component: {fileID: 621836360}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -4695,7 +4696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b34dfe875e42534280c2c1776758311, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  jumpCountTracker: {fileID: 621836357}
+  jumpCountTracker: {fileID: 621836360}
   sprites:
   - {fileID: 8942715469058879946, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
   - {fileID: 2958511140352431735, guid: 426488c1fa501dd49aa7607199372ec4, type: 3}
@@ -4793,6 +4794,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a1a0ae390ac40dd8da46d6a6c3e1b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FallDistanceTracker
+--- !u!114 &621836360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621836342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa2e2d714d67f4ff18cbe99f68776401, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::JumpCountTracker
 --- !u!1 &681087114
 GameObject:
   m_ObjectHideFlags: 0
@@ -7237,7 +7250,7 @@ MonoBehaviour:
   currentElevationText: {fileID: 0}
   fallDistanceTracker: {fileID: 621836359}
   elevationTracker: {fileID: 621836358}
-  jumpCountTracker: {fileID: 621836357}
+  jumpCountTracker: {fileID: 621836360}
 --- !u!4 &1430280843
 Transform:
   m_ObjectHideFlags: 0
