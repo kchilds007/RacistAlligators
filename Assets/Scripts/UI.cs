@@ -22,7 +22,10 @@ public class UI : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        totalJumpText.text = "Total Jumps: " + jumpCountTracker.getTotalJumpCount();
+        totalFallDistanceText.text = "Total Fall Distance: " + totalFallDistanceText.text;
+        currentElevationText.text = "Current Elevation: " + currentElevationText.text;
+        totalElevationClimbedText.text = "Total Elevation: " + totalElevationClimbedText.text;
     }
 
     // Update is called once per frame

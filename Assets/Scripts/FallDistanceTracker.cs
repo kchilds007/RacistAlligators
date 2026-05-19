@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class FallDistanceTracker : MonoBehaviour
 {
-    private float beforeJumpY = 0;
-    private float totalFallDistance = 0;
-    private float lastFallDistance = 0;
+    private float beforeJumpY;
+    private float totalFallDistance;
+    private float lastFallDistance;
 
     void Start()
     {
-        resetTotalFallDistance();
+        reset();
     }
 
     // Update is called once per frame
@@ -38,8 +38,10 @@ public class FallDistanceTracker : MonoBehaviour
         return totalFallDistance;
     }
     
-    private void resetTotalFallDistance()
+    private void reset()
     {
+        totalFallDistance = 0;
+        beforeJumpY = transform.position.y;
         totalFallDistance = 0;
     }
 }

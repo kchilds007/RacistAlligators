@@ -4,7 +4,6 @@ public class ElevationTracker : MonoBehaviour
 {
     private float highestPointReached = 0;
     
-    // private bool isGrounded;
     private float lastPositionY;
     private float totalElevationClimbed = 0;
     
