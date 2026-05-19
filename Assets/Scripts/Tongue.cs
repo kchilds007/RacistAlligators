@@ -6,6 +6,7 @@ public class Tongue : MonoBehaviour
     public Launcher Launcher;
     public Transform PlayerLocation;
     public MobileMob player;
+    public Animator playerAnimator;
 
     private float attackCooldown = GameParameters.PlayerAttackCooldown;
     // Update is called once per frame
@@ -36,8 +37,6 @@ public class Tongue : MonoBehaviour
     {
         Vector2 aimDirection = GetAimDirection();
         LaunchInDirection(aimDirection);
-
-
     }
 
     private void LaunchInDirection(Vector2 aimDirection)
@@ -46,6 +45,7 @@ public class Tongue : MonoBehaviour
         {
             if (aimDirection.x > 0)
             {
+                playerAnimator.Play("FrogMouth", 0, 0);
                 Launcher.Launch(aimDirection, -1);
             }
             else
@@ -57,6 +57,7 @@ public class Tongue : MonoBehaviour
         {
             if (aimDirection.x < 0)
             {
+                playerAnimator.Play("FrogMouth", 0, 0);
                 Launcher.Launch(aimDirection, 1);
             }
             else

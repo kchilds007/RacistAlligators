@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     public Vector2 movement;
     private Vector2 moveDir;
     private bool isOnSlipperyGround = false;
+    private LegCollisions LegCollisions;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
         playerInput = GetComponent<PlayerInput>();
         MoveInput = playerInput.actions["Move"];
         Animator =  GetComponent<Animator>();
+        LegCollisions =  GetComponent<LegCollisions>();
     }
 
     // Update is called once per frame
@@ -35,19 +37,21 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (GameParameters.isJumping)
+       if (!LegCollisions.IsGrounded())
         {
             return;
         }
+        
         float targetSpeed = movement.x * currentSpeed;
         float speedDiff = targetSpeed - GetComponent<Rigidbody2D>().linearVelocity.x;
         
         float accel = isOnSlipperyGround ? acceleration / GameParameters.SlipFactor : acceleration;
         float deccel = isOnSlipperyGround ? decceleration / GameParameters.SlipFactor : decceleration;
 
-        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? accel : deccel;        float finalMove = Mathf.Pow(Mathf.Abs(speedDiff), velPower) * accelRate * Mathf.Sign(speedDiff);
+        float accelRate = (Mathf.Abs(targetSpeed) > 0.01f) ? accel : deccel;        // ternaru  
+        float finalMove = Mathf.Pow(Mathf.Abs(speedDiff), velPower) * accelRate * Mathf.Sign(speedDiff);
         GetComponent<Rigidbody2D>().AddForce(finalMove * Vector2.right, ForceMode2D.Force);
-        Animate();
+        Animate(); 
     }
 
     private void OnCollisionEnter2D(Collision2D other)

@@ -9,6 +9,7 @@ TagManager:
   - Projectile
   - SlipperyGround
   - StickyGround
+  - PlayerMouth
   layers:
   - Default
   - TransparentFX
@@ -16,12 +17,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
   - Ground
-  - SlipperyGround
-  - StickyGround
-  - Wall
+  - Mud
+  - Ice
+  - Enemy
+  - 
+  - 
   - 
   - 
   - 

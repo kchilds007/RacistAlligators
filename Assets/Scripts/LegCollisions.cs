@@ -1,17 +1,22 @@
-using System.Collections;
 using UnityEngine;
 
 public class LegCollisions : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer;
-    public Sprite fallingSprite;
-    public Animator animator;
-
-    private IEnumerator coroutine;
+    
+    public BoxCollider2D GroundCollider;
+    public LayerMask GroundLayer;
+    public LayerMask MudLayer;
+    public LayerMask IceLayer;
+    public LayerMask EnemyLayer;
+    
+    private Rigidbody2D rigidBody;
+    private Player player;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        rigidBody = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -20,25 +25,26 @@ public class LegCollisions : MonoBehaviour
         
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public bool IsGrounded()
     {
-        spriteRenderer.sprite =  fallingSprite;
-        animator.enabled = false;
-        GameParameters.isJumping = true;
+        
+        LayerMask landableLayers = GroundLayer | MudLayer | IceLayer;
+        
+        return Physics2D.OverlapBox(
+            GroundCollider.bounds.center,   // centre of the box in world space
+            GroundCollider.bounds.size,     // width and height of the box
+            0f,                             // rotation of the box (0 = no rotation)
+            landableLayers                  // only detect these layers
+        );
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public bool IsRising()
     {
-        animator.Play("Base Layer.Landing", 0, 0);
-        animator.enabled = true;
-        StartCoroutine(waitForLanding());
+        return rigidBody.linearVelocity.y > 0f;
     }
-    
-    private IEnumerator waitForLanding()
+
+    public bool IsFalling()
     {
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0).Length);
-        GameParameters.isJumping = false;
-        
+        return rigidBody.linearVelocity.y < 0f ;
     }
-    
 }

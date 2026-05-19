@@ -16,7 +16,7 @@ public class PlayerJump : MonoBehaviour
     private bool holdingSpace;
     private SpriteRenderer spriteRenderer;
     private bool isOnStickyGround = false;
-
+    private LegCollisions LegCollisions;
 
     private Animator animator;
     private float originalMaxJumpPower;
@@ -33,7 +33,7 @@ public class PlayerJump : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator =  GetComponent<Animator>();
         originalMaxJumpPower = GameParameters.maxJumpPower;
-
+        LegCollisions =  GetComponent<LegCollisions>();
     }
 
     // Update is called once per frame
@@ -45,7 +45,7 @@ public class PlayerJump : MonoBehaviour
     private void FixedUpdate()
     {
         
-        if (GameParameters.isJumping)
+        if (LegCollisions.IsGrounded() == false)
         {
             return;
         }
@@ -60,6 +60,7 @@ public class PlayerJump : MonoBehaviour
             {
                 jumpPower = GameParameters.maxJumpPower;
             }
+            print("JumpPoer = " + jumpPower);
         }
         else
         {
@@ -84,14 +85,19 @@ public class PlayerJump : MonoBehaviour
                 spriteRenderer.sprite = sprites[5];
                 animator.enabled = true;
             }
+
+            jumpPower = jumpPower * 2;
+            
             //rigidbody2D.AddForceY(, ForceMode2D.Impulse);
             if (!player.facingLeft())
             {
-                rigidbody2D.AddForce(new Vector2((jumpPower / 3) * -1, jumpPower), ForceMode2D.Impulse);
+                rigidbody2D.AddForce(new Vector2((jumpPower/3) * -1.0f, jumpPower), ForceMode2D.Impulse);
+                print("Jumping: " + (jumpPower/3) * -1 + ", " + jumpPower);
             }
             else
             {
-                rigidbody2D.AddForce(new Vector2((jumpPower / 3), jumpPower), ForceMode2D.Impulse);
+                rigidbody2D.AddForce(new Vector2((float)(jumpPower/3), jumpPower), ForceMode2D.Impulse);
+                print("Jumping: " + (jumpPower/3)  + ", " + jumpPower);
             }
             
             jumpPower = GameParameters.minJumpPower;
@@ -104,6 +110,7 @@ public class PlayerJump : MonoBehaviour
         
         if (other.gameObject.CompareTag("StickyGround"))
         {
+            print("On sticky ground");
             isOnStickyGround = true;
             GameParameters.maxJumpPower = originalMaxJumpPower / 2f;
         }
