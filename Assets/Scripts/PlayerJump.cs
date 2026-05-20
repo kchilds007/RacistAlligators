@@ -16,7 +16,7 @@ public class PlayerJump : MonoBehaviour
     private bool holdingSpace;
     private SpriteRenderer spriteRenderer;
     private bool isOnStickyGround = false;
-    private LegCollisions LegCollisions;
+    public LegCollisions LegCollisions;
 
     private Animator animator;
     private float originalMaxJumpPower;
@@ -33,7 +33,6 @@ public class PlayerJump : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator =  GetComponent<Animator>();
         originalMaxJumpPower = GameParameters.maxJumpPower;
-        LegCollisions =  GetComponent<LegCollisions>();
     }
 
     // Update is called once per frame

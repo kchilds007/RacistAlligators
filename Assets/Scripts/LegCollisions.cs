@@ -3,20 +3,19 @@ using UnityEngine;
 public class LegCollisions : MonoBehaviour
 {
     
-    public BoxCollider2D GroundCollider;
+    private BoxCollider2D GroundCollider;
     public LayerMask GroundLayer;
     public LayerMask MudLayer;
     public LayerMask IceLayer;
     public LayerMask EnemyLayer;
     
-    private Rigidbody2D rigidBody;
-    private Player player;
+    public Rigidbody2D rigidBody;
+    public Player player;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        rigidBody = GetComponent<Rigidbody2D>();
-        player = GetComponent<Player>();
+        GroundCollider = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerLand : MonoBehaviour
 {
-    private LegCollisions LegCollision;
+    public LegCollisions LegCollision;
     private bool wasNotGrounded;
     private Animator animator;
     private Player player;
@@ -11,7 +11,6 @@ public class PlayerLand : MonoBehaviour
     void Awake()
     {
         animator = GetComponent<Animator>();
-        LegCollision = GetComponent<LegCollisions>();
         player = GetComponent<Player>();
         wasNotGrounded = false;
     }

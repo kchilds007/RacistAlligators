@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         float targetSpeed = movement.x * currentSpeed;
         float speedDiff = targetSpeed - GetComponent<Rigidbody2D>().linearVelocity.x;
         
+        
         float accel = isOnSlipperyGround ? acceleration / GameParameters.SlipFactor : acceleration;
         float deccel = isOnSlipperyGround ? decceleration / GameParameters.SlipFactor : decceleration;
 
