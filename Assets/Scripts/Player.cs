@@ -12,10 +12,12 @@ public class Player : MobileMob
 {
     private PlayerState playerState;
     private PlayerMovement playerMovement; 
+    private LegCollisions legCollisions;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        legCollisions = GetComponent<LegCollisions>();
         base.Start();
         playerMovement = GetComponent<PlayerMovement>(); 
     }
@@ -24,6 +26,10 @@ public class Player : MobileMob
     void Update()
     {
         movement = playerMovement.movement;
+        if (!legCollisions.IsGrounded())
+        {
+            ChangeState(PlayerState.Falling);
+        }
         base.Update();
     }
 

@@ -52,6 +52,7 @@ public class PlayerJump : MonoBehaviour
         
         if (JumpInput.ReadValue<float>() > 0.5)
         {
+            player.ChangeState(PlayerState.Jumping);
             animator.enabled = false;
             spriteRenderer.sprite =  sprites[((int) (jumpPower)/2)];
             holdingSpace = true;
@@ -60,7 +61,6 @@ public class PlayerJump : MonoBehaviour
             {
                 jumpPower = GameParameters.maxJumpPower;
             }
-            print("JumpPoer = " + jumpPower);
         }
         else
         {
@@ -74,7 +74,7 @@ public class PlayerJump : MonoBehaviour
         {
             jumpCountTracker.UpdateTotalJumpCount();
             
-            player.ChangeState(PlayerState.Falling);
+            
             
             if (jumpPower > 2.0f)
             {
@@ -92,13 +92,12 @@ public class PlayerJump : MonoBehaviour
             if (!player.facingLeft())
             {
                 rigidbody2D.AddForce(new Vector2((jumpPower/3) * -1.0f, jumpPower), ForceMode2D.Impulse);
-                print("Jumping: " + (jumpPower/3) * -1 + ", " + jumpPower);
             }
             else
             {
                 rigidbody2D.AddForce(new Vector2((float)(jumpPower/3), jumpPower), ForceMode2D.Impulse);
-                print("Jumping: " + (jumpPower/3)  + ", " + jumpPower);
             }
+            
             
             jumpPower = GameParameters.minJumpPower;
             jump = false;

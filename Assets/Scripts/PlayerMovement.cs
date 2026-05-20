@@ -16,12 +16,13 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveDir;
     private bool isOnSlipperyGround = false;
     private LegCollisions LegCollisions;
-
+    private Player player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentSpeed = baseSpeed;
+        player = GetComponent<Player>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         playerInput = GetComponent<PlayerInput>();
         MoveInput = playerInput.actions["Move"];
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-       if (!LegCollisions.IsGrounded())
+       if (player.getState() ==  PlayerState.Jumping || player.getState() == PlayerState.Falling)
         {
             return;
         }

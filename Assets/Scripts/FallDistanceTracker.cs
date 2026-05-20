@@ -7,10 +7,12 @@ public class FallDistanceTracker : MonoBehaviour
     private float beforeJumpY;
     private float totalFallDistance;
     private float lastFallDistance;
+    private Player player;
 
     void Start()
     {
         reset();
+        player = GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -19,7 +21,7 @@ public class FallDistanceTracker : MonoBehaviour
         
         // only tracking falling from last landed position (downward arc of a jump isn't always a fall)
         // player.getState() != PlayerState.Falling
-        if (GameParameters.isJumping)
+        if (player.getState() == PlayerState.Jumping)
         {
             beforeJumpY = transform.position.y;
         }
@@ -40,7 +42,6 @@ public class FallDistanceTracker : MonoBehaviour
     
     private void reset()
     {
-        totalFallDistance = 0;
         beforeJumpY = transform.position.y;
         totalFallDistance = 0;
     }
