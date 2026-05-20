@@ -53,13 +53,14 @@ public class PlayerJump : MonoBehaviour
         {
             player.ChangeState(PlayerState.Jumping);
             animator.enabled = false;
-            spriteRenderer.sprite =  sprites[((int) ((jumpPower)/7.5f))];
+            spriteRenderer.sprite =  sprites[((int) (jumpPower)/7.5f) < sprites.Length ? (int)(jumpPower / 7.5f) : sprites.Length-1];
             holdingSpace = true;
             jumpPower += GameParameters.variableJumpPower;
             if (jumpPower > GameParameters.maxJumpPower)
             {
                 jumpPower = GameParameters.maxJumpPower;
             }
+            print("JumpPower = " + jumpPower);
         }
         else
         {
