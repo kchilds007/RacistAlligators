@@ -1,4 +1,6 @@
 
+using System.Numerics;
+
 public static class GameParameters
 {
     public static float acceleration = 20f;
@@ -16,5 +18,6 @@ public static class GameParameters
     
     public static float SlipFactor = 10f;
 
-    
+    public static float WallBreaktorque = 3f;
+    public static Vector2 WallBreakForce = new Vector2(1,1);
 }
