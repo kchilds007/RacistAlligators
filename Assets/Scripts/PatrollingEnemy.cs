@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PatrollingEnemy : MobileMob
 {
-    public float speed= GameParameters.PatrollingEnemyspeed;
+    public float speed = GameParameters.PatrollingEnemyspeed;
     public Transform transform;
 
     protected int direction = 1;
@@ -23,17 +23,21 @@ public class PatrollingEnemy : MobileMob
     {
         if (ground.tag == "Ground")
         {
-            direction *= -1;
-            transform.localScale = new Vector3(direction, 1, 1);
+            changeDirection();
         }
     }
-    
 
     void FixedUpdate()
     {
         Vector2 position = rigidbody2D.position;
         position.x = position.x + speed * direction * Time.deltaTime;
         rigidbody2D.MovePosition(position);
+    }
+
+    public void changeDirection()
+    {
+        direction *= -1;
+        transform.localScale = new Vector3(4 * direction, 4, 1);
     }
     
 }
