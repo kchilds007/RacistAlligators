@@ -18,8 +18,9 @@ public class SideCollisions : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print(rigidbody.linearVelocity.x);
-        print(collision.name);
-        rigidbody.AddForceX(rigidbody.linearVelocity.x*-4.0f, ForceMode2D.Impulse);
+        if (collision.tag != "Projectile")
+        {
+            rigidbody.AddForceX(rigidbody.linearVelocity.x*-4.0f, ForceMode2D.Impulse);
+        }
     }
 }
