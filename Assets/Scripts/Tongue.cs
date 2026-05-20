@@ -45,7 +45,6 @@ public class Tongue : MonoBehaviour
         {
             if (aimDirection.x > 0)
             {
-                playerAnimator.Play("FrogMouth", 0, 0);
                 Launcher.Launch(aimDirection, -1);
             }
             else
@@ -57,7 +56,6 @@ public class Tongue : MonoBehaviour
         {
             if (aimDirection.x < 0)
             {
-                playerAnimator.Play("FrogMouth", 0, 0);
                 Launcher.Launch(aimDirection, 1);
             }
             else
