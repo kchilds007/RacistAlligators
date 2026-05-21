@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI ;
 
 public class PlayerJump : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class PlayerJump : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isOnStickyGround = false;
     public LegCollisions LegCollisions;
+
+    public Image jumpMeter;
 
     private Animator animator;
     private float originalMaxJumpPower;
@@ -38,7 +41,14 @@ public class PlayerJump : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (player.getState() == PlayerState.Jumping)
+        {
+            jumpMeter.fillAmount = jumpPower / GameParameters.maxJumpPower;
+        }
+        else
+        {
+            jumpMeter.fillAmount = 0f;
+        }
     }
 
     private void FixedUpdate()
