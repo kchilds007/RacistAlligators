@@ -24,12 +24,14 @@ public class FallDistanceTracker : MonoBehaviour
         {
             beforeJumpY = transform.position.y;
         }
-        else
+        else if(player.getState() == PlayerState.Falling)
         {
             if (transform.position.y < beforeJumpY)
             {
                 totalFallDistance += (beforeJumpY - transform.position.y);
             }
+            beforeJumpY = transform.position.y; // reset for next jump
+
         }
         
     }
