@@ -63,6 +63,7 @@ public class PlayerJump : MonoBehaviour
         if (JumpInput.ReadValue<float>() > 0.5)
         {
             player.ChangeState(PlayerState.Jumping);
+            rigidbody2D.AddForce(new Vector2(-rigidbody2D.linearVelocity.x, 0), ForceMode2D.Impulse);
             animator.enabled = false;
             spriteRenderer.sprite =  sprites[((int) (jumpPower)/7.5f) < sprites.Length ? (int)(jumpPower / 7.5f) : sprites.Length-1];
             holdingSpace = true;
