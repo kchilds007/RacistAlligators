@@ -21,6 +21,6 @@ public static class GameParameters
     public static float WallBreaktorque = 3f;
     public static Vector2 WallBreakForce = new Vector2(1,1);
     
-    public static int MinScoreGoal = 3;
+    public static int MinScoreGoal = 30;
     
 }
