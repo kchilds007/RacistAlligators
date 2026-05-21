@@ -19,13 +19,15 @@ public class UI : MonoBehaviour
     public ElevationTracker elevationTracker;
     public JumpCountTracker jumpCountTracker;
     
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         totalJumpText.text = "Total Jumps: " + jumpCountTracker.getTotalJumpCount();
-        totalFallDistanceText.text = "Total Fall Distance: " + totalFallDistanceText.text;
-        currentElevationText.text = "Current Elevation: " + currentElevationText.text;
-        totalElevationClimbedText.text = "Total Elevation: " + totalElevationClimbedText.text;
+        totalFallDistanceText.text = "Total Fall Distance: " + fallDistanceTracker.getTotalFallDistance();
+        currentElevationText.text = "Current Elevation: " + elevationTracker.getCurrentElevation();
+        totalElevationClimbedText.text = "Total Elevation: " + elevationTracker.getTotalElevationClimbed();
+        highestElevationText.text = "Highest Elevation: " + elevationTracker.getHighestPointReached();
     }
 
     // Update is called once per frame
@@ -33,34 +35,18 @@ public class UI : MonoBehaviour
     {
         
         // should probably implement some sort of observer pattern at this point, but this gets the job done
-        if (jumpCountTracker.getTotalJumpCount().ToString() != totalJumpText.text)
-        {
-            totalJumpText.text = "Total Jumps: " + jumpCountTracker.getTotalJumpCount();
-        }
-
-        if (elevationTracker.getHighestPointReached().ToString() != highestElevationText.text)
-        {
-            highestElevationText.text = "Highest Elevation: " + highestElevationText.text;
-        }
-
-        if (elevationTracker.getCurrentElevation().ToString() != currentElevationText.text)
-        {
-            currentElevationText.text = "Current Elevation: " + currentElevationText.text;
-        }
-
-        if (elevationTracker.getTotalElevationClimbed().ToString() != totalElevationClimbedText.text)
-        {
-            totalElevationClimbedText.text = "Total Elevation: " + totalElevationClimbedText.text;
-        }
-
-        if (fallDistanceTracker.getTotalFallDistance().ToString() != totalFallDistanceText.text)
-        {
-            totalFallDistanceText.text = "Total Fall Distance: " + totalFallDistanceText.text;
-        }
-        
+        totalJumpText.text = "Total Jumps: " + jumpCountTracker.getTotalJumpCount();
+        totalFallDistanceText.text = "Total Fall Distance: " + fallDistanceTracker.getTotalFallDistance().ToString("F2");
+        currentElevationText.text = "Current Elevation: " + elevationTracker.getCurrentElevation().ToString("F2");
+        totalElevationClimbedText.text = "Total Elevation: " + elevationTracker.getTotalElevationClimbed().ToString("F2");
+        highestElevationText.text = "Highest Elevation: " + elevationTracker.getHighestPointReached().ToString("F2");
     }
     public void SetScoreText(int score)
     {
         scoreText.text = "Score: " + score;
+    }
+    public void SetTotalJumpText(int jumps)
+    {
+        scoreText.text = "Score: " + jumps;
     }
 }
