@@ -11,6 +11,7 @@ TagManager:
   - StickyGround
   - PlayerMouth
   - BrokenWall
+  - Collectible
   layers:
   - Default
   - TransparentFX
