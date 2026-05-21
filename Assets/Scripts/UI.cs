@@ -45,8 +45,5 @@ public class UI : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
     }
-    public void SetTotalJumpText(int jumps)
-    {
-        scoreText.text = "Score: " + jumps;
-    }
+    
 }
