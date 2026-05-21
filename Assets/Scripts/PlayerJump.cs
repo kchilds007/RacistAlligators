@@ -20,6 +20,7 @@ public class PlayerJump : MonoBehaviour
     public LegCollisions LegCollisions;
 
     public Image jumpMeter;
+    public Sounds Sounds;
 
     private Animator animator;
     private float originalMaxJumpPower;
@@ -82,6 +83,7 @@ public class PlayerJump : MonoBehaviour
         }
         if (jump)
         {
+            Sounds.PlayJumpClip();
             jumpCountTracker.UpdateTotalJumpCount();
             if (jumpPower > 2.0f)
             {

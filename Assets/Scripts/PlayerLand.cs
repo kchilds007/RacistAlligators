@@ -6,8 +6,9 @@ public class PlayerLand : MonoBehaviour
     private bool wasNotGrounded;
     private Animator animator;
     private Player player;
+
+    public Sounds Sounds;
     
-   
     void Awake()
     {
         animator = GetComponent<Animator>();
@@ -30,6 +31,7 @@ public class PlayerLand : MonoBehaviour
 
         if (wasNotGrounded && LegCollision.IsGrounded())
         {
+            Sounds.PlayLandClip();
             animator.enabled = true;
             player.ChangeState(PlayerState.Idle);
             wasNotGrounded = false;
