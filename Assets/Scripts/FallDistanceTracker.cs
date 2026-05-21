@@ -29,8 +29,8 @@ public class FallDistanceTracker : MonoBehaviour
             if (transform.position.y < beforeJumpY)
             {
                 totalFallDistance += (beforeJumpY - transform.position.y);
+                beforeJumpY = transform.position.y;
             }
-            beforeJumpY = transform.position.y; // reset for next jump
 
         }
         
