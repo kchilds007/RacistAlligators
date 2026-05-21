@@ -20,7 +20,6 @@ public class FallDistanceTracker : MonoBehaviour
     {
         
         // only tracking falling from last landed position (downward arc of a jump isn't always a fall)
-        // player.getState() != PlayerState.Falling
         if (player.getState() == PlayerState.Jumping)
         {
             beforeJumpY = transform.position.y;

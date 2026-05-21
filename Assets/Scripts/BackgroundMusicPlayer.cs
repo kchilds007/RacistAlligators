@@ -16,8 +16,7 @@ public class BackgroundMusicPlayer : MonoBehaviour
         
         if (!audioSource.isPlaying)
         {
-            audioSource.clip = songs[currentSongIndex];
-            audioSource.Play();
+            PlaySong();
         }
     }
 
@@ -27,9 +26,14 @@ public class BackgroundMusicPlayer : MonoBehaviour
         // if a song isn't playing, choose a random song and play
         if (!audioSource.isPlaying)
         {
-            currentSongIndex = Random.Range(0, songs.Length);
-            audioSource.clip = songs[currentSongIndex];
-            audioSource.Play();
+            PlaySong();
         }
+    }
+
+    private void PlaySong()
+    {
+        currentSongIndex = Random.Range(0, songs.Length);
+        audioSource.clip = songs[currentSongIndex];
+        audioSource.Play();
     }
 }
