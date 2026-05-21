@@ -43,7 +43,7 @@ public class UI : MonoBehaviour
     }
     public void SetScoreText(int score)
     {
-        scoreText.text = "Score: " + score;
+        scoreText.text = "Score: " + score + "/" + GameParameters.MinScoreGoal;
     }
     
 }
