@@ -18,7 +18,7 @@ public class SideCollisions : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.tag != "Projectile" || collision.tag != "Collectible")
+        if (collision.tag != "Projectile" && collision.tag != "Collectible")
         {
             rigidbody.AddForceX(rigidbody.linearVelocity.x*-4.0f, ForceMode2D.Impulse);
         }
