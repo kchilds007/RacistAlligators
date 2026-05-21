@@ -21,7 +21,7 @@ public class PatrollingEnemy : MobileMob
 
     void OnTriggerExit2D(Collider2D ground)
     {
-        if (ground.tag == "Ground")
+        if (ground.tag == "Ground" || ground.tag == "SlipperyGround" || ground.tag == "StickyGround")
         {
             changeDirection();
         }
